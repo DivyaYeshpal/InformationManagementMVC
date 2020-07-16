@@ -1,0 +1,79 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<InformationManagementMVC.Models.CallList>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<table class="table table-striped table-bordered table-hover table-full-width dataTable">
+    <tr>
+        <th>
+            SNo
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Name)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.First().Gender)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.First().OffNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MobNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HomeTelNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EmailID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CurAdd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().OffAdd)
+        </th>
+    </tr>
+    @{ int rowNo = 0; }
+    @foreach (var items in Model)
+    {
+<tr>
+    <td>
+        @(rowNo += 1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.Name)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => items.OffNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.MobNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.HomeTelNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.EmailID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.CurAdd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => items.OffAdd)
+    </td>
+</tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, pageIndex => Url.Action("Index", new { pageIndex }),new PagedListRenderOptions() { DisplayPageCountAndCurrentLocation=true})
+
+
+
