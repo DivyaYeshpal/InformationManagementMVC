@@ -29,7 +29,6 @@ namespace InformationManagementMVC.Controllers
             {
                 httpClient1.BaseAddress = new Uri(baseAddress);
                 httpClient1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", AccessToken);
-                //HttpResponseMessage response = httpClient1.GetAsync("api/ListAllContacts/GetCallList?parameters={pageNumber=pm.pageNumber,pageSize=pm.pageSize}").Result;
                 var responseTask = httpClient1.GetAsync("api/ListAllContacts/GetCallList?pageNumber=" + pageIndex.ToString());
                 // New code:
                 if (responseTask.Result.IsSuccessStatusCode)

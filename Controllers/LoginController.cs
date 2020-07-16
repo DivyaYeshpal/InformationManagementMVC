@@ -71,7 +71,6 @@ namespace InformationManagementMVC.Controllers
                         ModelState.AddModelError(string.Empty, "Please login with correct UserName and Password");
                     }
                 }
-                //ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
                 return View(reg);
             }
         }

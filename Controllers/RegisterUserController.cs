@@ -44,7 +44,7 @@ namespace InformationManagementMVC.Controllers
                         return View(reg);
                     }
                 }
-                }
+            }
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
             return View(reg);
         }
