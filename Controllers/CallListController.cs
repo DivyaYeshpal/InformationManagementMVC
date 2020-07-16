@@ -65,7 +65,6 @@ namespace InformationManagementMVC.Controllers
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                     return View(cll1.ToList().ToPagedList(page ?? 1, pageSize));
                 }
-                //return View(cll1);
             }
         }
         public ActionResult create()
@@ -105,8 +104,6 @@ namespace InformationManagementMVC.Controllers
                     return View(cll);
                 }
             }
-            //ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-            //return View(cll);
         }
         [HttpGet]
         public ActionResult Edit(double Id)
@@ -170,7 +167,6 @@ namespace InformationManagementMVC.Controllers
                     TempData["success"] = "Updated Successfully";
                     return RedirectToAction("Index", "CallList", new { UserID = UserID });
                 }
-                //}
                 ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
                 return View(cll);
             }
